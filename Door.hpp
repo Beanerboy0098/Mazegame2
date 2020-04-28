@@ -2,10 +2,13 @@
 #include <iostream>
 #ifndef Door_hpp
 #define Door_hpp
-#include "Room.hpp"
+
+
 
 
 using namespace std;
+
+class Room;
 
 class Door
 {

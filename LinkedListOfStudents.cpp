@@ -1,11 +1,9 @@
 #include "LinkedListOfStudents.hpp"
-
 LinkedListOfStudents::LinkedListOfStudents()
 {
     this->head = 0;
     this->count = 0;
 }
-
 void LinkedListOfStudents::addFront(Student* s)
 {
     StudentNode* sn = new StudentNode(s);
@@ -20,7 +18,6 @@ void LinkedListOfStudents::addFront(Student* s)
     }
     this->count++;
 }
-
 Student* LinkedListOfStudents::getAtIndex(int index)
 {
     //if they give us a bad index, return null
@@ -38,7 +35,6 @@ Student* LinkedListOfStudents::getAtIndex(int index)
         return currNode->getPayload();
     }
 }
-
 Student* LinkedListOfStudents::removeAtIndex(int index)
 {
     //is the list empty or is index out of range?
@@ -49,7 +45,6 @@ Student* LinkedListOfStudents::removeAtIndex(int index)
     else
     {
         Student* studentToReturn = 0;
-
         if(index == 0)
         {
             //remove from front
@@ -77,13 +72,13 @@ Student* LinkedListOfStudents::removeAtIndex(int index)
             //remove from the middle
             StudentNode* firstPoint = this->head->getNextNode();
             StudentNode* beforePoint = this->head;
-
             for(int i = index-1; i>0; i--)
             {
                 firstPoint = firstPoint->getNextNode();
                 beforePoint = beforePoint->getNextNode();
             }
-            studentToReturn = firstPoint;
+            
+            studentToReturn = firstPoint->getPayload();
             beforePoint->setNextNode((firstPoint->getNextNode()));
             firstPoint->setNextNode(0);
             this->count--;
@@ -92,14 +87,14 @@ Student* LinkedListOfStudents::removeAtIndex(int index)
     }
     
 }
-
 int LinkedListOfStudents::indexOf(Student* s)
 {
     int index = 0;
     StudentNode* traverse = this->head;
     for(int i = 0; i < this->count-1; i++)
     {
-        if(traverse == s)
+       
+        if(traverse->getPayload() == s)
         {
             return index;
         }
@@ -109,5 +104,6 @@ int LinkedListOfStudents::indexOf(Student* s)
             index++;   
         }
     }
-    return -1
+    
+    return -1;
 }
