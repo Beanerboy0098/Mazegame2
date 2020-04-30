@@ -1,7 +1,6 @@
+#include "Student.hpp"
 #ifndef StudentNode_hpp
 #define StudentNode_hpp
-
-#include "Student.hpp"
 
 class StudentNode
 {

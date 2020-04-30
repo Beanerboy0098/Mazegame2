@@ -5,8 +5,8 @@
 
 
 
-
 using namespace std;
+//class Door;
 
 class Room
 {
@@ -26,3 +26,4 @@ class Room
         string getTitle();
 
 };
+#endif
